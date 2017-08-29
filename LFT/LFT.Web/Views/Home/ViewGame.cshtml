@@ -1,0 +1,260 @@
+﻿@using GiantBomb.Api;
+@using LFT.Web.Models;
+@using Newtonsoft.Json;
+@using System.Configuration;
+
+<style>
+    body {
+        background-color: #000000;
+        opacity: 0.90;
+        color: white;
+    }
+
+    .panel-body {
+        background-color: #000000;
+        opacity: 0.90;
+        color: white;
+    }
+
+    .panel-heading {
+        color: white;
+        background-color: #337ab7;
+    }
+
+    .panel {
+        background-color: #337ab7;
+    }
+
+    .btn-block {
+        opacity: 0.90;
+    }
+</style>
+
+
+@{
+    ViewBag.Title = "ViewGame";
+
+    var giantbomb = new GiantBombRestClient(ConfigurationManager.AppSettings["gbapikey"]);
+
+    var gameQuery = giantbomb.SearchForGames(ViewData["Query"].ToString(), 1 ,50);
+    var gameModel = gameQuery.ToList<GiantBomb.Api.Model.Game>()[0];
+
+    var gameId = gameModel.Id;
+    var game = giantbomb.GetGame(gameId);
+    string gamename = game.Name;
+    string gameDescription = game.Deck;
+    GiantBomb.Api.Model.Image gameImage = game.Image;
+    var developers = game.Developers;
+    var publishers = game.Publishers;
+    var releases = game.Releases;
+    var franchises = game.Franchises;
+    var genres = game.Genres;
+    var platforms = game.Platforms;
+    var rating = game.OriginalGameRating;
+    var similarGames = game.SimilarGames;
+}
+
+<!-- Page Content -->
+<div id="page-content-wrapper">
+    <div class="container-fluid">
+
+        <!-- Game Summary -->
+        <div class="row">
+
+            <!-- Game Cover Art -->
+            <div class="col-md-5">
+                <div class="panel panel-primary">
+                    <div class="panel-body">
+                        <img class="img-responsive" src="@gameImage.SmallUrl" alt="Game Image" />
+                        <br />
+
+                        <!-- Buttons -->
+                        <button type="button" class="btn btn-primary btn-block">
+                            Haves
+                            <span class="glyphicon glyphicon-plus-sign"></span>
+                        </button>
+                        <br />
+                        <button type="button" class="btn btn-primary btn-block">
+                            Wants
+                            <span class="glyphicon glyphicon-plus-sign"></span>
+                        </button>
+                        <br />
+                        <button type="button" class="btn btn-primary btn-block">
+                            Send Game
+                            <span class="glyphicon glyphicon-plus-sign"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Game Description -->
+            <div class="col-md-7">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <!-- Game Name -->
+                        <center class="panel-title"><h1>@gamename</h1></center>
+                    </div>
+
+                    <div class="panel-body">
+                        <!-- Game Description-->
+                        @if (!String.IsNullOrEmpty(gameDescription))
+                        {
+                            @Html.Raw(gameDescription);
+                        }
+                        <br />
+                        <br />
+
+                        @if (genres != null)
+                        {
+                            <span>Genre:</span>
+                            <ul>
+                                @foreach (var genre in genres)
+                                {
+                                    if (!String.IsNullOrEmpty(genre.Name))
+                                    {
+                                        <li>@genre.Name</li>
+                                    }
+                                }
+                            </ul>
+                        }
+
+                        @if (developers != null)
+                        {
+                            <span>Developer:</span>
+                            <ul>
+                                @foreach (var developer in developers)
+                                {
+                                    if (!String.IsNullOrEmpty(developer.Name))
+                                    {
+                                        <li>
+                                            @developer.Name
+                                        </li>
+                                    }
+                                }
+                            </ul>
+                        }
+
+
+                        @if (publishers != null)
+                        {
+                            <span>Publisher:</span>
+                            <ul>
+                                @foreach (var publisher in publishers)
+                                {
+                                    if (!String.IsNullOrEmpty(publisher.Name))
+                                    {
+                                        <li>
+                                            @publisher.Name
+                                        </li>
+                                    }
+                                }
+                            </ul>
+                        }
+
+
+                        @if (platforms != null)
+                        {
+                            <span>Platform:</span>
+                            <ul>
+                                @foreach (var platform in platforms)
+                                {
+                                    if (!String.IsNullOrEmpty(platform.Name))
+                                    {
+                                        <li>
+                                            @platform.Name
+                                        </li>
+                                    }
+
+                                }
+                            </ul>
+                        }
+
+
+                        @if (franchises != null)
+                        {
+                            <span>Franchise:</span>
+                            <ul>
+                                @foreach (var franchise in franchises)
+                                {
+                                    if (!String.IsNullOrEmpty(franchise.Name))
+                                    {
+                                        <li>
+                                            @franchise.Name
+                                        </li>
+                                    }
+                                }
+                            </ul>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Wanters -->
+        <div class="row">
+            <div class="col">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <center class="panel-title">Wanters</center>
+                        <div class="panel-body">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Similar Games -->
+        <div class="row align-items-start">
+            <div class="panel">
+                <div class="panel-heading">
+                    <center class="panel-title">Similar Games</center>
+                </div>
+                <div class="panel-body">
+                    @if (similarGames != null)
+                    {
+                        foreach (var similarGame in similarGames)
+                        {
+                            if (similarGame != null)
+                            {
+                                <div class="col-md-2 align-self-start">
+                                    <div class="panel-body">
+                                        <center>
+                                            <img class="img-responsive" src="@giantbomb.GetGame(similarGame.Id).Image.ThumbUrl" />
+                                        </center>
+                                        @if (!String.IsNullOrEmpty(similarGame.Name))
+                                        {
+                                            <center>
+                                                @Html.ActionLink(
+                                                    linkText: @similarGame.Name,
+                                                    actionName: "ViewGame",
+                                                    controllerName: "Home",
+                                                    routeValues: new { query = similarGame.Name },
+                                                    htmlAttributes: null)
+                                            </center>
+                                        }
+                                    </div>
+                                </div>
+                            }
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Live Streams-->
+    <div class="row">
+        <div class="col">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <center class="panel-title">Live Streams</center>
+                    <div class="panel-body">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+

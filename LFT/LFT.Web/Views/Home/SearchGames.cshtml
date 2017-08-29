@@ -1,0 +1,52 @@
+﻿@model LFT.Web.ViewModel.GameViewModel
+
+@{
+    ViewBag.Title = "Search Game";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<head>
+    <link rel="stylesheet" href="~/Content/SearchGames.css" />
+    <script type="text/javascript" src="~/Scripts/SearchGames.js"></script>
+</head>
+
+<body>
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+        <div class="container-fluid">
+            @if (Model.searchResults != null)
+            {
+                <h2>Found @Model.searchResults.Count Search Results for "@ViewData["Query"].ToString()"</h2>
+
+                <!-- Search Results -->
+                foreach (var item in Model.searchResults)
+                {
+                    <div class="row">
+                            <div class="media">
+                                <div class="media-left">
+                                    <img class="media-object" src="@Model.giantbomb.GetGame(item.Id).Image.ThumbUrl" alt="Game Image" />
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="media-heading">
+                                        @Html.ActionLink(
+                                linkText: item.Name,
+                                actionName: "ViewGame",
+                                controllerName: "Home",
+                                routeValues: new { query = item.Name },
+                                htmlAttributes: null)
+                                    </h4>
+                                    <p>@Model.giantbomb.GetGame(item.Id).Deck</p>
+                                </div>
+                            </div>
+                    </div>
+                    <br />
+                }
+            }
+            else
+            {
+                <h2>Could not process request for @ViewData["Query"].ToString()</h2>
+            }
+        </div>
+    </div>
+</body>

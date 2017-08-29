@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3) PresentationLayer", "3) PresentationLayer", "{B7D3A7D3-8D39-4510-AA7A-B6E416652EA6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1) DataAccessLayer", "1) DataAccessLayer", "{99EC1E2F-ABEC-433F-8761-D2583566B81C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2) BusinessServiceLayer", "2) BusinessServiceLayer", "{3CFD4D6F-31BB-4C5F-93F7-958C9C11EA29}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "LFT.Database.Data", "LFT.Database.Data\LFT.Database.Data.sqlproj", "{0211C83A-4A74-4F3A-9E33-9C9D4BFF59D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LFT.DataAccesss", "LFT.DataAccesss\LFT.DataAccesss.csproj", "{58BC3645-7FF1-4F54-9140-A78BDB66EDEE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LFT.BusinessService", "LFT.BusinessService\LFT.BusinessService.csproj", "{4120F12F-5903-45C4-AF77-B4941719158D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LFT.Web", "LFT.Web\LFT.Web.csproj", "{E7273C60-089D-40B1-87BB-5B2494431970}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Development|Any CPU = Development|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0211C83A-4A74-4F3A-9E33-9C9D4BFF59D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0211C83A-4A74-4F3A-9E33-9C9D4BFF59D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0211C83A-4A74-4F3A-9E33-9C9D4BFF59D5}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{0211C83A-4A74-4F3A-9E33-9C9D4BFF59D5}.Development|Any CPU.ActiveCfg = Debug|Any CPU
+		{0211C83A-4A74-4F3A-9E33-9C9D4BFF59D5}.Development|Any CPU.Build.0 = Debug|Any CPU
+		{0211C83A-4A74-4F3A-9E33-9C9D4BFF59D5}.Development|Any CPU.Deploy.0 = Debug|Any CPU
+		{0211C83A-4A74-4F3A-9E33-9C9D4BFF59D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0211C83A-4A74-4F3A-9E33-9C9D4BFF59D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0211C83A-4A74-4F3A-9E33-9C9D4BFF59D5}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{58BC3645-7FF1-4F54-9140-A78BDB66EDEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58BC3645-7FF1-4F54-9140-A78BDB66EDEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58BC3645-7FF1-4F54-9140-A78BDB66EDEE}.Development|Any CPU.ActiveCfg = Debug|Any CPU
+		{58BC3645-7FF1-4F54-9140-A78BDB66EDEE}.Development|Any CPU.Build.0 = Debug|Any CPU
+		{58BC3645-7FF1-4F54-9140-A78BDB66EDEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58BC3645-7FF1-4F54-9140-A78BDB66EDEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4120F12F-5903-45C4-AF77-B4941719158D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4120F12F-5903-45C4-AF77-B4941719158D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4120F12F-5903-45C4-AF77-B4941719158D}.Development|Any CPU.ActiveCfg = Debug|Any CPU
+		{4120F12F-5903-45C4-AF77-B4941719158D}.Development|Any CPU.Build.0 = Debug|Any CPU
+		{4120F12F-5903-45C4-AF77-B4941719158D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4120F12F-5903-45C4-AF77-B4941719158D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7273C60-089D-40B1-87BB-5B2494431970}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7273C60-089D-40B1-87BB-5B2494431970}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7273C60-089D-40B1-87BB-5B2494431970}.Development|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7273C60-089D-40B1-87BB-5B2494431970}.Development|Any CPU.Build.0 = Debug|Any CPU
+		{E7273C60-089D-40B1-87BB-5B2494431970}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7273C60-089D-40B1-87BB-5B2494431970}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{58BC3645-7FF1-4F54-9140-A78BDB66EDEE} = {99EC1E2F-ABEC-433F-8761-D2583566B81C}
+		{4120F12F-5903-45C4-AF77-B4941719158D} = {3CFD4D6F-31BB-4C5F-93F7-958C9C11EA29}
+		{E7273C60-089D-40B1-87BB-5B2494431970} = {B7D3A7D3-8D39-4510-AA7A-B6E416652EA6}
+	EndGlobalSection
+EndGlobal

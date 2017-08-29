@@ -1,0 +1,38 @@
+﻿body{
+    background-color:black;
+}
+
+h1 {
+    color:white;
+    font-size: 8px;
+}
+
+.profile--nav{
+    background-color:black;
+}
+
+p {
+   color:white;
+}
+
+.control{
+    width:20px;
+    height:20px;
+}
+   .parallax {
+            /* The image used */
+            background-image: url('../../Content/Images/lft.png');
+            /* Set a specific height */
+            height: 300px;
+            /* Create the parallax scrolling effect */
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+/*
+    @* profile sign in button *@
+        <a class="g-signin2" data-onsuccess="onSignIn"></a>
+        <a href="#" onclick="signOut();">Sign out</a>
+        <a class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true" scope="public_profile,email" onlogin="checkLoginState();" ></a>
+*/

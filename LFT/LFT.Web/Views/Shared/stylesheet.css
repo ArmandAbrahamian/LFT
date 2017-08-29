@@ -1,0 +1,19 @@
+﻿body {
+    
+}
+.btn {
+            background-color:black;
+        }
+        
+         .btn-primary {
+            background-color:black;
+        }
+
+body, h1, h2, h3, h4, h5, h6 {
+        font-family: "Raleway", sans-serif;
+        color:black;
+    }
+
+.w3-sidenav a, .w3-sidenav h4 {
+        font-weight: bold;
+    }

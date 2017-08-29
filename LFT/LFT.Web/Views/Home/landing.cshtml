@@ -1,0 +1,211 @@
+﻿
+@{
+    ViewBag.Title = "Landing";
+}
+
+<head>
+
+    @*<title></title>*@
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="~/Content/landing.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/Content/index.css">
+
+    <style>
+        a {
+            color: white !important;
+        }
+
+
+
+        .type--nav {
+            font-family: 'Lato', sans-serif;
+            font-size: 8px;
+            text-decoration: none;
+            text-transform: capitalize;
+            letter-spacing: 2px;
+        }
+
+        .center {
+            text-align: center !important;
+        }
+
+        .floatr {
+            float: right;
+        }
+
+        .center--games {
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+
+        .white2 {
+            color: white;
+        }
+
+        .jumbo2 {
+            font-size: 2px;
+        }
+
+
+        .parallax {
+            /* The image used */
+            background-image: url('../../Content/Images/lft.png');
+            /* Set a specific height */
+            height: 300px;
+            /* Create the parallax scrolling effect */
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+
+
+
+
+@*<nav class="navbar-default navbar-fixed-top " style="opacity: 0.9;">*@
+<div style="background:rgba(35, 39, 44, .95);">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <div class="col-sm-6" style="top:10px;">
+            <img style="color:white;width:40px; top:20px;" src="~/Content/Images/logo-invert.png" />
+        </div>
+        <div class="col-sm-6 type--nav" style="font-size:12px;color:#0A0F1B; right:12px; top:22px;">
+            LFT
+        </div>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+        <ul class="floatr nav navbar-nav type--nav" style="margin-left:300px;">
+            <li class=""><a href="#"><i class="fa fa-search" style="color:white;"></i>SEARCH</a></li>
+            <li><a href="#about">PRICING</a></li>
+            <li><a href="">POPULAR</a></li>
+            <li><a href="">SIGN UP</a></li>
+            <li><a href="">LOGIN</a></li>
+        </ul>
+    </div>
+</div>
+@* </nav> *@
+
+<body style="background-color:black; height:500px;">
+    <div class="main">
+        <div class="section">
+            <div class="container">
+                <div class="row center--games">
+                    <div class="col-sm-12">
+                        <p class="type--nav center" style="font-size:10px; color:white;top:5px;">PICK A GAME. ANY GAME.</p>
+                    </div>
+                    <div class="col-sm-3" style="width:150px; top:100px;">
+                        <div style="margin-bottom:0px; margin-right:0px; margin-left:0;">
+                            <img style="width:150px; height: 200px" src="http://www.giantbomb.com/api/image/scale_medium/2362089-nes_ninjagaiden3.jpg">
+                        </div>
+                        <div style="margin-bottom:0px; margin-right:0px; margin-left:0;">
+                            <img style="width:150px; height: 200px" src="http://www.giantbomb.com/api/image/scale_medium/2126447-box_me3.png">
+                        </div>
+                    </div>
+                    <div class="col-sm-3" style="width:150px; top:100px;">
+                        <div style="margin-bottom:0px; margin-right:0px; margin-left:0;">
+                            <img style="width:150px; height: 200px" src="http://www.giantbomb.com/api/image/scale_medium/2560870-dishonoredhigh.jpg">
+                        </div>
+                        <div style="margin-bottom:0px; margin-right:0px; margin-left:0;">
+                            <img style="width:150px; height: 200px" src="http://www.giantbomb.com/api/image/scale_medium/1717934-gow3cover_insert.jpg">
+                        </div>
+                    </div>
+                    <div class="col-sm-3" style="width:150px; top:100px;">
+                        <div style="margin-bottom:0px; margin-right:0px; margin-left:0;">
+                            <img style="width:150px; height: 200px" src="http://www.giantbomb.com/api/image/scale_medium/2903754-steep%20v3.jpg">
+                        </div>
+                        <div>
+                            <img style="width:150px; height: 200px" src="http://www.giantbomb.com/api/image/scale_medium/2903750-final%20fantasy%20xv%20v3.jpg">
+                        </div>
+                    </div>
+                    <div class="col-sm-3" style="width:150px; top:100px;">
+                        <div style="margin-bottom:0px; margin-right:0px; margin-left:0;">
+                            <img style="width:150px; height: 200px" src="http://www.giantbomb.com/api/image/scale_medium/2463980-grand%20theft%20auto%20v.jpg">
+                        </div>
+                        <div style="margin-bottom:0px; margin-right:0px; margin-left:0;">
+                            <img style="width:150px; height: 200px" src="http://www.giantbomb.com/api/image/scale_medium/2615944-box_tf.png">
+                        </div>
+                    </div>
+                    <div class="col-sm-3" style="width:150px; top:100px;">
+                        <div style="margin-bottom:0px; margin-right:0px; margin-left:0;">
+                            <img style="width:150px; height: 200px" src="http://www.giantbomb.com/api/image/scale_medium/1789944-box_mgstts.png">
+                        </div>
+                        <div style="margin-bottom:0px; margin-right:0px; margin-left:0;">
+                            <img style="width:150px; height: 200px" src="http://www.giantbomb.com/api/image/scale_medium/2831957-earthbound.jpg">
+                        </div>
+                    </div>
+                    <div class="col-sm-3" style="width:150px; top:100px;">
+                        <div style="margin-bottom:0px; margin-right:0px; margin-left:0;">
+                            <img style="width:150px; height: 200px" src="http://www.giantbomb.com/api/image/scale_medium/2560503-xcomclean.jpg">
+                        </div>
+                        <div style="margin-bottom:0px; margin-right:0px; margin-left:0;">
+                            <img style="width:150px; height: 200px" src="http://www.giantbomb.com/api/image/scale_medium/2566505-remake.jpg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <br> <br> <br> <br><br> <br><br> <br>
+
+    <div style="background-color:white; height:500px;">
+        <br>
+        <div class="container">
+            <div class="row center--games">
+                <p class="type--nav center" style="font-size:10px; color:black;top:5px;">TRADE THE GAMES YOU HAVE AND GET POINTS</p>
+                <br><br><br><br><br><br>
+                <div class="col-sm-3">
+                    <img class="center--games" style="width:270px;" src="~/Content/Images/mario.png" alt="mail">
+                </div>
+                <div class="col-sm-3">
+                    <center><i class=" fa fa-plus" style="color:black;font-size:200px;margin-left:105px;" aria-hidden="true"></i></center>
+                </div>
+                <div class="col-sm-3">
+                    <img src="~/Content/Images/bit.png" alt="mail">
+                </div>
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                <div class=" col-sm-12">
+                    <p class="type--nav center" style="font-size:10px; color:black;top:5px;">USE THE POINTS YOU'VE EARNED TO BUY GAMES</p>
+                    <br><br>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="parallax"></div>
+
+
+    <div class="row center--games">
+        <br><br><br>
+        @*<p class="type--nav center" style="font-size:10px; color:white;top:5px;">SIGN IN</p>*@
+        <br><br>
+
+        <div class="col-sm-12">
+            @* Sign in buttons *@
+            <div id="firebaseui-auth-container"></div>
+            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+        </div>
+    </div>
+
+
+
+
+
+</body>
+

@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!--Jquery CDN-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!--Angular js from Google CDN-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+    <!--BootStrap CDN-->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="~/Scripts/index.js"></script>
+    <!--Firebase-->
+    <script src="~/Scripts/firebase.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.css" />
+
+    <script src="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.css" />
+    <script src="https://www.gstatic.com/firebasejs/3.6.9/firebase.js"></script>
+    <script>
+  // Initialize Firebase sign in
+  var config = {
+    apiKey: "AIzaSyDJ6tGQRM7FZUhNh9elJV4Y2ds_fwta9Wg",
+    authDomain: "lft-comp490.firebaseapp.com",
+    databaseURL: "https://lft-comp490.firebaseio.com",
+    storageBucket: "lft-comp490.appspot.com",
+    messagingSenderId: "291558550363"
+  };
+  firebase.initializeApp(config);
+    </script>
+   
+    <script type="text/javascript">
+      // FirebaseUI config.
+      var uiConfig = {
+        callbacks: {
+          signInSuccess: function(currentUser, credential, redirectUrl) {
+            // Do something.
+            // Return type determines whether we continue the redirect automatically
+            // or whether we leave that to developer to handle.
+            return true;
+          },
+          uiShown: function() {
+            // The widget is rendered.
+            // Hide the loader.
+            document.getElementById('loader').style.display = 'none';
+          }
+        },
+        credentialHelper: firebaseui.auth.CredentialHelper.ACCOUNT_CHOOSER_COM,
+        // Query parameter name for mode.
+        queryParameterForWidgetMode: 'mode',
+        // Query parameter name for sign in success url.
+        queryParameterForSignInSuccessUrl: 'signInSuccessUrl',
+        // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+        signInFlow: 'popup',
+        signInSuccessUrl: 'http://lftweb-dev.us-west-2.elasticbeanstalk.com/Home/Landing',
+        signInOptions: [
+          // Leave the lines as is for the providers you want to offer your users.
+          firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+          firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+          firebase.auth.EmailAuthProvider.PROVIDER_ID
+        ],
+        // Terms of service url.
+        tosUrl: '<your-tos-url>'
+      };
+
+      var ui = new firebaseui.auth.AuthUI(firebase.auth());
+      // The start method will wait until the DOM is loaded.
+      ui.start('#firebaseui-auth-container', uiConfig);
+    </script>
+
+    <link rel="stylesheet" href="~/Content/index.css">
+    <link rel="stylesheet" href="~/Content/Profile.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+
+<body>
+
+    <div id="wrapper">
+        <div class="overlay"></div>
+        <!-- Sidebar -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+            <ul class="nav sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">LFT</a>
+                </li>
+                <!-- Search Bar -->
+                <li>
+                    @using (Html.BeginForm("SearchGames", "Home", FormMethod.Get))
+                    {
+                        <div class="input-group">
+                            <input required type="text" class="form-control" placeholder="Search" name="query" style="color:white; background-color:#333333;">
+                            <div class="input-group-btn">
+                                <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                            </div>
+                        </div>
+                    }
+                </li>
+
+                <li>
+                    @Html.ActionLink("Home", "Index", "Home")
+                </li>
+                <li>@Html.ActionLink("Landing", "Landing", "Home")</li>
+                <li>
+                    @Html.ActionLink("About", "About", "Home")
+                </li>
+                <li>
+                    @Html.ActionLink("Profile", "Profile", "Home")
+                </li>
+                <li>
+                    @Html.ActionLink("Test", "Test", "Home")
+                </li>
+            </ul>
+        </nav>
+        <!-- /#sidebar-wrapper -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+                <span class="hamb-top"></span>
+                <span class="hamb-middle"></span>
+                <span class="hamb-bottom"></span>
+            </button>
+            <!--container to right of sidebar-->
+            <div class="container">
+                <div class="row">
+                    <!--This is the div where the html page is displays-->
+                    <!--This used to be <div ng-view></div> -->
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+</body>
+</html>
